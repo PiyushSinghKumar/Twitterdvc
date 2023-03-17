@@ -6,7 +6,7 @@ stages:
     deps:
       - utilities/tweets_extraction.py
     outs:
-      - data/raw_tweets.json:
+      - raw_tweets.json:
           cache: false
           persist: true
   process:
@@ -17,7 +17,7 @@ stages:
       - data/raw_tweets.json
       - utilities/tweets_cleaning.py
     outs:
-      - data/cleaned_tweets.csv:
+      - cleaned_tweets.csv:
           cache: false
           persist: true
   classification:
@@ -28,6 +28,6 @@ stages:
       - data/cleaned_tweets.csv
       - utilities/tweets_classification.py
     outs:
-      - data/classified_tweets.csv:
+      - classified_tweets.csv:
           cache: false
           persist: true
