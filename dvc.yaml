@@ -1,26 +1,32 @@
 stages:
   prepare:
-    cmd: python tweets_extraction.py
+    cmd: 
+      - cd utilities
+      - python utilities/tweets_extraction.py
     deps:
-      - tweets_extraction.py
+      - utilities/tweets_extraction.py
     outs:
       - data/raw_tweets.json:
           cache: false
           persist: true
   process:
-    cmd: python tweets_cleaning.py
+    cmd:
+      - cd utilities
+      - python utilities/tweets_cleaning.py
     deps:
       - data/raw_tweets.json
-      - tweets_cleaning.py
+      - utilities/tweets_cleaning.py
     outs:
       - data/cleaned_tweets.csv:
           cache: false
           persist: true
   classification:
-    cmd: python tweets_classification.py
+    cmd:
+      - cd utilities
+      - python utilities/tweets_classification.py
     deps:
       - data/cleaned_tweets.csv
-      - tweets_classification.py
+      - utilities/tweets_classification.py
     outs:
       - data/classified_tweets.csv:
           cache: false
