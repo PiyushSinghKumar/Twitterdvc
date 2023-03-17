@@ -1,7 +1,7 @@
 import pandas as pd
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
-tweets = pd.read_csv('../data/cleaned_tweets.csv')
+tweets = pd.read_csv('cleaned_tweets.csv')
 tweets = tweets.head(100)
 
 # Initialize the VADER sentiment analyzer
