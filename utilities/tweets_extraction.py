@@ -52,16 +52,16 @@ while True:
         time.sleep(60) # Wait for 60 seconds and try again
 
 # Save the extracted data as JSON
-if os.path.isfile('raw_tweets.json'):
+if os.path.isfile('../data/raw_tweets.json'):
     # If the file exists, open it in append mode
-    with open('raw_tweets.json', 'a') as f:
+    with open('../data/raw_tweets.json', 'a') as f:
     # Iterate through the list of tweets and write each tweet as a separate JSON object
         for tweet in tweets:
             json.dump(tweet, f)
             f.write('\n')
 else:
     # If the file doesn't exist, create a new file and write to it
-    with open('raw_tweets.json', 'w') as f:
+    with open('../data/raw_tweets.json', 'w') as f:
     # Iterate through the list of tweets and write each tweet as a separate JSON object
         for tweet in tweets:
             json.dump(tweet, f)

@@ -12,7 +12,7 @@ import json
 
 # Open the file and read each line as a separate JSON object
 tweets = []
-with open('raw_tweets.json', 'r') as f:
+with open('../data/raw_tweets.json', 'r') as f:
     for line in f:
         try:
             tweet_data = json.loads(line)
@@ -61,4 +61,4 @@ def clean_tweet(tweet):
 # Clean the tweets
 df['cleaned_tweet'] = df['full_text'].apply(clean_tweet)
 
-df.to_csv('cleaned_tweets.csv',index=False)
+df.to_csv('../data/cleaned_tweets.csv',index=False)
